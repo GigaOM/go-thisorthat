@@ -108,4 +108,42 @@ class GO_ThisOrThat_Widget extends WP_Widget
 
 		return $instance;
 	}//end update
+
+	/**
+	 * Output a select-a-widget option list
+	 */
+	private function widget_option_list( $widgets, $current = NULL )
+	{
+		$current_sidebar = NULL;
+		$has_opt_group   = FALSE;
+		foreach ( $widgets as $sidebar )
+		{
+			if ( ! is_array( $sidebar ) )
+			{
+				continue;
+			}//end if
+
+			foreach ( $sidebar as $widget )
+			{
+				if ( $current_sidebar != $widget['sidebar'] )
+				{
+					$has_opt_group = TRUE;
+					?>
+					<optgroup label="<?php echo esc_attr( $widget['sidebar'] ); ?>">
+					<?php
+					$current_sidebar = $widget['sidebar'];
+				}//end if
+
+				$widget_id = $$id;
+				?>
+				<option value="<?php echo esc_attr( $widget['id'] ); ?>" <?php selected( $widget['id'], $current ); ?>><?php echo esc_html( $widget['name'] ); ?></option>
+				<?php
+			}//end foreach
+		}//end foreach
+
+		if ( $has_opt_group )
+		{
+			?></optgroup><?php
+		}//end if
+	}//end widget_option_list
 }//end class
