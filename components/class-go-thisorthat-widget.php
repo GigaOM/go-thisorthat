@@ -46,16 +46,16 @@ class GO_ThisOrThat_Widget extends WP_Widget
 	{
 		global $wp_registered_widgets;
 
+		if ( empty( $wp_registered_widgets[ $widget_instance_id ] ) )
+		{
+			return;
+		}//end if
+
 		preg_match( '/(.*)-([0-9]+)$/', $widget_instance_id, $matches );
 
 		$widget_contents = NULL;
 		$widget_id = $matches[1];
 		$widget_num = $matches[2];
-
-		if ( empty( $wp_registered_widgets[ $widget_instance_id ] ) )
-		{
-			return;
-		}//end if
 
 		$registered_widget = $wp_registered_widgets[ $widget_instance_id ];
 		$callback = $registered_widget['callback'][0];
