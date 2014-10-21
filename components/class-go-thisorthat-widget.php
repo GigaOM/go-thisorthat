@@ -19,7 +19,7 @@ class GO_ThisOrThat_Widget extends WP_Widget
 	 * outputs the content of the widget
 	 *
 	 * @param array $args Widget arguments
-	 * @param array $unused_instance Current instantiation settings
+	 * @param array $instance Current instantiation settings
 	 */
 	public function widget( $args, $instance )
 	{
