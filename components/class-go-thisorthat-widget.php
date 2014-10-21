@@ -94,11 +94,11 @@ class GO_ThisOrThat_Widget extends WP_Widget
 	 * @see WP_Widget::update()
 	 *
 	 * @param array $new_instance Values just sent to be saved.
-	 * @param array $old_instance Previously saved values from database.
+	 * @param array $unused_old_instance Previously saved values from database.
 	 *
 	 * @return array Updated safe values to be saved.
 	 */
-	public function update( $new_instance, $old_instance )
+	public function update( $new_instance, $unused_old_instance )
 	{
 		$instance = array();
 
