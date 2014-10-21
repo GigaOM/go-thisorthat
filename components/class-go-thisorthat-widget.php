@@ -133,8 +133,6 @@ class GO_ThisOrThat_Widget extends WP_Widget
 					<?php
 					$current_sidebar = $widget['sidebar'];
 				}//end if
-
-				$widget_id = $$id;
 				?>
 				<option value="<?php echo esc_attr( $widget['id'] ); ?>" <?php selected( $widget['id'], $current ); ?>><?php echo esc_html( $widget['name'] ); ?></option>
 				<?php
