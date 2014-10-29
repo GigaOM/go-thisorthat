@@ -33,6 +33,12 @@ class GO_ThisOrThat_Widget extends WP_Widget
 			$widget_contents = $this->get_widget_contents( $instance['that'] );
 		}//end if
 
+		// if we still don't have any widget contents, bail.
+		if ( ! $widget_contents )
+		{
+			return;
+		}//end if
+
 		echo $args['before_widget'];
 		// widget_contents is escaped in the output of the widgets that are being fetched.
 		echo $widget_contents;
